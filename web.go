@@ -8,6 +8,12 @@ import (
 	"time"
 )
 
+type TemplateData struct {
+	Title    string
+	Datetime string
+	Unixtime string
+}
+
 func HelloServer(w http.ResponseWriter, r *http.Request) {
 
 }
