@@ -41,4 +41,10 @@ func main() {
 
 	// http.ListenAndServeで待ち受けるportを指定
 	err := http.ListenAndServe(":4001", nil)
+
+	// エラー処理
+	if err != nil {
+		log.Fatal("ListenAndServe: ", err)
+	}
+
 }
