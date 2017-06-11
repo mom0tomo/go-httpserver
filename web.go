@@ -15,17 +15,17 @@ type TemplateData struct {
 }
 
 func HelloServer(w http.ResponseWriter, r *http.Request) {
-	// parent template and child template
+	// 親テンプレート(index.html)と子テンプレート(body.html)
 	tmpl := template.Must(template.ParseFiles("views/index.html", "views/body.html"))
 
 	title := "現在の時刻"
 
-	// contents on body
-	// convert time to string
+	// bodyに表示するコンテンツ
+	// 時刻オブジェクトを文字列に変換
 	datetime := fmt.Sprint(time.Now())
 	unixtime := fmt.Sprint(time.Now().Unix())
 
-	// output the template
+	// テンプレートを実行して出力
 	templatedate := TemplateData{title, datetime, unixtime}
 	if err := tmpl.ExecuteTemplate(w, "base", templatedate); err != nil {
 		fmt.Println(err)
