@@ -25,6 +25,11 @@ func HelloServer(w http.ResponseWriter, r *http.Request) {
 	datetime := fmt.Sprint(time.Now())
 	unixtime := fmt.Sprint(time.Now().Unix())
 
+	// output the template
+	templatedate := TemplateData{title, datetime, unixtime}
+	if err := tmpl.ExecuteTemplate(w, "base", templatedate); err != nil {
+		fmt.Println(err)
+	}
 }
 
 func main() {
