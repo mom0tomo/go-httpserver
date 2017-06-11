@@ -38,4 +38,7 @@ func main() {
 
 	// ログ出力
 	log.Printf("Start Go HTTP Server")
+
+	// http.ListenAndServeで待ち受けるportを指定
+	err := http.ListenAndServe(":4001", nil)
 }
