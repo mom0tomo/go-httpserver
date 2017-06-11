@@ -35,4 +35,7 @@ func HelloServer(w http.ResponseWriter, r *http.Request) {
 func main() {
 	// http.HandleFuncにルーティングと処理する関数を登録
 	http.HandleFunc("/", HelloServer)
+
+	// ログ出力
+	log.Printf("Start Go HTTP Server")
 }
